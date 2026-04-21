@@ -1,65 +1,767 @@
-<DOCTYPE html>
-<html>
-  <body>
-    <haeder>
-      <h1>
-        welcome to my website
-      </h1>
-      <nav>
-        <br> SENGEREMA.</br>
-        <br> ABOUT SENGEREMA HIGH SCHOOL.</br>
-        
-      </nav>
-      
-    </haeder>
-    <div>
-      <h2>SENGEREMA HIGH SCHOOL is located
-        at SENGEREMA,MWANZA.
-      </h2>
-      <P>It is a single sex school which is for 
-        boys only.
-       
-      </P>
-      <br>It is for advanced education level
-      only.</br>
-      <br> SENGEREMA HIGH SCHOOL has good and
-      attractive environment that suport learning
-      as it has good class buildings and large 
-      trees where students can seat and learn.</br>
-      <br>It has good and amazing hostel blocks 
-      like NYERERE, MKWAWA,MIRAMBO,SOKOINE 
-      Domitories and so on.</br>
-      <br>The school has good and applicable 
-      strategies that helps students to perfom
-      higher.</br>
-      <br>It has science, art and business teachers
-      who live near the school to make sure
-      that they are around the school environment
-      all the time.</br>
-      <br>It receives students from any region in 
-      our country who are qualified to join
-      advanced education level.</br>
-      <br>The school offers the following
-      combination.</br>
-      <br>1.PCB</br>
-      <br>2.PCM</br>
-      <br>3.PGM</br>
-      <br>4.EGM</br>
-      <br>5.CBG</br>
-      <br>6.HGK</br>
-      <br>7.HKL</br>
-      <br>8.HGE</br>
-      <br>9.HGL</br>
-      <br>10.ECA</br>
-      
-      
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Masaga1 Restaurant Management</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"/>
+  <!-- Google Fonts: Playfair Display + DM Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --bg:        #0f0f0f;
+      --surface:   #1a1a1a;
+      --surface2:  #222222;
+      --border:    #2e2e2e;
+      --accent:    #d4973a;
+      --accent2:   #f0c06a;
+      --text:      #e8e2d6;
+      --muted:     #7a7570;
+      --danger:    #c0392b;
+      --success:   #27ae60;
+      --radius:    14px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--accent2);
+      letter-spacing: 0.01em;
+    }
+    .logo span { color: var(--muted); font-size: 0.85rem; font-family: 'DM Sans', sans-serif; font-weight: 300; margin-left: 10px; }
+    .btn-add {
+      background: var(--accent);
+      color: #0f0f0f;
+      border: none;
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .btn-add:hover { background: var(--accent2); transform: translateY(-1px); }
+    .btn-add:active { transform: scale(0.97); }
+
+    /* ── Toolbar ── */
+    .toolbar {
+      padding: 20px 32px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 200px;
+      max-width: 340px;
+    }
+    .search-box i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+    .search-box input {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 8px 12px 8px 34px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-box input:focus { border-color: var(--accent); }
+    .search-box input::placeholder { color: var(--muted); }
+
+    .filter-select {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .filter-select:focus { border-color: var(--accent); }
+    .filter-select option { background: var(--surface2); }
+
+    .stat-pill {
+      margin-left: auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .stat-pill b { color: var(--accent2); }
+
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 24px 32px 48px;
+    }
+
+    /* ── Product Card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+      animation: fadeUp 0.35s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+    .card-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      background: var(--surface2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 2.5rem;
+    }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .card-body { padding: 16px 18px 14px; }
+
+    .card-category {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 5px;
+    }
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 5px;
+      line-height: 1.3;
+    }
+    .card-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card-footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-price {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--accent2);
+    }
+    .card-price small { font-size: 0.7rem; color: var(--muted); font-weight: 300; }
+
+    .badge-avail {
+      font-size: 0.68rem;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+    .badge-avail.yes { background: rgba(39,174,96,0.15); color: #4ecca3; }
+    .badge-avail.no  { background: rgba(192,57,43,0.15);  color: #e57373; }
+
+    .card-actions {
+      display: flex;
+      gap: 6px;
+      padding: 10px 18px 14px;
+      border-top: 1px solid var(--border);
+    }
+    .btn-icon {
+      flex: 1;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 7px;
+      border-radius: 7px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.18s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+    .btn-icon:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-icon.del:hover { border-color: var(--danger); color: var(--danger); background: rgba(192,57,43,0.08); }
+
+    /* ── Empty / Loading State ── */
+    .state-box {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--muted);
+    }
+    .state-box i { font-size: 3rem; margin-bottom: 16px; display: block; }
+    .state-box p { font-size: 0.95rem; }
+
+    /* ── Modal ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 520px;
+      max-height: 92vh;
+      overflow-y: auto;
+      padding: 28px 30px;
+      animation: slideIn 0.25s ease;
+      margin: 16px;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: scale(0.95) translateY(20px); }
+      to   { opacity: 1; transform: scale(1)    translateY(0); }
+    }
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: var(--accent2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    label.fld {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 5px;
+    }
+    .form-grp { margin-bottom: 16px; }
+
+    input.inp, select.inp, textarea.inp {
+      width: 100%;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 9px 13px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input.inp:focus, select.inp:focus, textarea.inp:focus { border-color: var(--accent); }
+    input.inp::placeholder, textarea.inp::placeholder { color: var(--muted); }
+    select.inp option { background: var(--surface2); }
+    textarea.inp { resize: vertical; min-height: 70px; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+    }
+    .toggle-row span { font-size: 0.875rem; }
+    .switch { position: relative; display: inline-block; width: 42px; height: 23px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider-sw {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background: var(--border);
+      border-radius: 23px;
+      transition: 0.3s;
+    }
+    .slider-sw:before {
+      content: '';
+      position: absolute;
+      height: 17px; width: 17px;
+      left: 3px; bottom: 3px;
+      background: #fff;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+    input:checked + .slider-sw { background: var(--success); }
+    input:checked + .slider-sw:before { transform: translateX(19px); }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .btn-save {
+      flex: 1;
+      background: var(--accent);
+      color: #0f0f0f;
+      border: none;
+      padding: 11px;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-save:hover { background: var(--accent2); }
+    .btn-save:active { transform: scale(0.98); }
+    .btn-cancel {
+      background: var(--surface2);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 11px 20px;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .btn-cancel:hover { color: var(--text); }
+
+    /* ── Toast ── */
+    #toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 220px;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(.34,1.56,.64,1);
+      pointer-events: none;
+    }
+    #toast.show { transform: translateY(0); opacity: 1; }
+    #toast.success { border-color: var(--success); }
+    #toast.error   { border-color: var(--danger); }
+    #toast i.success { color: var(--success); }
+    #toast i.error   { color: var(--danger); }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  </style>
+</head>
+<body>
+
+<!-- ═══ Header ═══ -->
+<header>
+  <div class="logo">
+    <i class="fa-solid fa-utensils" style="color:var(--accent);font-size:1.2rem;margin-right:10px"></i>
+    RestaurantOS
+    <span>Menu Manager</span>
+  </div>
+  <button class="btn-add" onclick="openModal()">
+    <i class="fa-solid fa-plus"></i> Bidhaa Mpya
+  </button>
+</header>
+
+<!-- ═══ Toolbar ═══ -->
+<div class="toolbar">
+  <div class="search-box">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" id="search" placeholder="Tafuta bidhaa..." oninput="filterCards()"/>
+  </div>
+  <select class="filter-select" id="cat-filter" onchange="filterCards()">
+    <option value="">Kategoria zote</option>
+  </select>
+  <div class="stat-pill">Jumla: <b id="count">0</b> bidhaa</div>
+</div>
+
+<!-- ═══ Products Grid ═══ -->
+<div class="grid" id="grid">
+  <div class="state-box">
+    <i class="fa-solid fa-circle-notch fa-spin"></i>
+    <p>Inapakia bidhaa...</p>
+  </div>
+</div>
+
+<!-- ═══ Modal ═══ -->
+<div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)">
+  <div class="modal-box">
+    <div class="modal-title">
+      <i class="fa-solid fa-pen-to-square"></i>
+      <span id="modal-title-text">Bidhaa Mpya</span>
     </div>
-    <h2>Contact us:
-      <br>Phone number</br>
-      <br>075825089</br>
-      <br>0680875016</br>
-      <p>You are warmly welcome.</p>
-    </h2>
-   </div>
-  </body>
+
+    <div class="form-grp">
+      <label class="fld">Jina la Bidhaa *</label>
+      <input class="inp" type="text" id="f-name" placeholder="Mfano: Chicken Burger"/>
+    </div>
+
+    <div class="form-grp">
+      <label class="fld">Maelezo</label>
+      <textarea class="inp" id="f-desc" placeholder="Elezea bidhaa hii..."></textarea>
+    </div>
+
+    <div class="two-col">
+      <div class="form-grp">
+        <label class="fld">Bei (TZS) *</label>
+        <input class="inp" type="number" id="f-price" placeholder="8500" min="1"/>
+      </div>
+      <div class="form-grp">
+        <label class="fld">Kategoria *</label>
+        <select class="inp" id="f-category">
+          <option value="General">General</option>
+          <option value="Burgers">Burgers</option>
+          <option value="Pizzas">Pizzas</option>
+          <option value="Drinks">Drinks</option>
+          <option value="Desserts">Desserts</option>
+          <option value="Chips">Chips</option>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Salads">Salads</option>
+          <option value="Seafood">Seafood</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-grp">
+      <label class="fld">Image Path</label>
+      <input class="inp" type="text" id="f-image" placeholder="/images/bidhaa.jpg"/>
+    </div>
+
+    <div class="form-grp">
+      <div class="toggle-row">
+        <span>Bidhaa inapatikana?</span>
+        <label class="switch">
+          <input type="checkbox" id="f-avail" checked/>
+          <span class="slider-sw"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-save" onclick="saveProduct()">
+        <i class="fa-solid fa-floppy-disk"></i> Hifadhi
+      </button>
+      <button class="btn-cancel" onclick="closeModal()">Funga</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Toast ═══ -->
+<div id="toast">
+  <i id="toast-icon"></i>
+  <span id="toast-msg"></span>
+</div>
+
+<!-- ═══ Scripts ═══ -->
+<!-- Axios -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  /* ── Config ── */
+  const API = "http://localhost:8000";
+  let allProducts = [];
+  let editingId   = null;
+
+  /* ════════════════════════════════
+     FETCH ALL PRODUCTS
+  ════════════════════════════════ */
+  async function loadProducts() {
+    try {
+      const res = await axios.get(`${API}/products`);
+      allProducts = res.data;
+      buildCategoryFilter();
+      renderGrid(allProducts);
+    } catch (e) {
+      document.getElementById('grid').innerHTML = `
+        <div class="state-box">
+          <i class="fa-solid fa-triangle-exclamation" style="color:#e57373"></i>
+          <p>Imeshindwa kuunganika na server.<br>
+          Hakikisha <b>uvicorn main:app --reload</b> inaendesha.</p>
+        </div>`;
+    }
+  }
+
+  /* ════════════════════════════════
+     RENDER GRID
+  ════════════════════════════════ */
+  function renderGrid(products) {
+    document.getElementById('count').textContent = products.length;
+    const grid = document.getElementById('grid');
+
+    if (!products.length) {
+      grid.innerHTML = `
+        <div class="state-box">
+          <i class="fa-solid fa-bowl-food" style="color:var(--muted)"></i>
+          <p>Hakuna bidhaa zilizopatikana.</p>
+        </div>`;
+      return;
+    }
+
+    grid.innerHTML = products.map((p, i) => `
+      <div class="card" style="animation-delay:${i*0.04}s">
+        <div class="card-img">
+          ${p.image_path
+            ? `<img src="${p.image_path}" alt="${p.name}" onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-image\'></i>'">`
+            : `<i class="fa-solid fa-image"></i>`}
+        </div>
+        <div class="card-body">
+          <div class="card-category">${p.category}</div>
+          <div class="card-name">${p.name}</div>
+          <div class="card-desc">${p.description || 'Hakuna maelezo'}</div>
+          <div class="card-footer-row">
+            <div class="card-price">
+              TZS ${Number(p.price).toLocaleString()}
+              <small>/kipande</small>
+            </div>
+            <span class="badge-avail ${p.available ? 'yes' : 'no'}">
+              ${p.available ? 'Inapatikana' : 'Haipatikani'}
+            </span>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-icon" onclick="editProduct(${p.id})">
+            <i class="fa-solid fa-pen"></i> Hariri
+          </button>
+          <button class="btn-icon del" onclick="deleteProduct(${p.id}, '${p.name.replace(/'/g,"\\'")}')">
+            <i class="fa-solid fa-trash"></i> Futa
+          </button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  /* ════════════════════════════════
+     FILTER / SEARCH
+  ════════════════════════════════ */
+  function filterCards() {
+    const q   = document.getElementById('search').value.toLowerCase();
+    const cat = document.getElementById('cat-filter').value;
+    const filtered = allProducts.filter(p => {
+      const matchQ   = p.name.toLowerCase().includes(q) || (p.description||'').toLowerCase().includes(q);
+      const matchCat = !cat || p.category === cat;
+      return matchQ && matchCat;
+    });
+    renderGrid(filtered);
+  }
+
+  function buildCategoryFilter() {
+    const cats = [...new Set(allProducts.map(p => p.category))];
+    const sel  = document.getElementById('cat-filter');
+    const prev = sel.value;
+    sel.innerHTML = '<option value="">Kategoria zote</option>' +
+      cats.map(c => `<option value="${c}" ${c===prev?'selected':''}>${c}</option>`).join('');
+  }
+
+  /* ════════════════════════════════
+     MODAL: OPEN / CLOSE
+  ════════════════════════════════ */
+  function openModal(data = null) {
+    editingId = data ? data.id : null;
+    document.getElementById('modal-title-text').textContent = data ? 'Hariri Bidhaa' : 'Bidhaa Mpya';
+    document.getElementById('f-name').value     = data?.name        || '';
+    document.getElementById('f-desc').value     = data?.description || '';
+    document.getElementById('f-price').value    = data?.price       || '';
+    document.getElementById('f-category').value = data?.category    || 'General';
+    document.getElementById('f-image').value    = data?.image_path  || '';
+    document.getElementById('f-avail').checked  = data !== null ? data.available : true;
+    document.getElementById('modal').classList.add('open');
+    setTimeout(() => document.getElementById('f-name').focus(), 300);
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    editingId = null;
+  }
+
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('modal')) closeModal();
+  }
+
+  /* ════════════════════════════════
+     SAVE (CREATE or UPDATE)
+  ════════════════════════════════ */
+  async function saveProduct() {
+    const name     = document.getElementById('f-name').value.trim();
+    const price    = parseFloat(document.getElementById('f-price').value);
+    const category = document.getElementById('f-category').value;
+
+    if (!name)          return showToast('Jina la bidhaa linahitajika!', 'error');
+    if (!price || price <= 0) return showToast('Bei lazima iwe zaidi ya 0!', 'error');
+
+    const payload = {
+      name,
+      description: document.getElementById('f-desc').value.trim() || null,
+      price,
+      category,
+      image_path: document.getElementById('f-image').value.trim() || null,
+      available:  document.getElementById('f-avail').checked,
+    };
+
+    try {
+      if (editingId) {
+        await axios.put(`${API}/products/${editingId}`, payload);
+        showToast('Bidhaa imesasishwa!', 'success');
+      } else {
+        await axios.post(`${API}/products`, payload);
+        showToast('Bidhaa mpya imeongezwa!', 'success');
+      }
+      closeModal();
+      loadProducts();
+    } catch (e) {
+      const msg = e.response?.data?.detail || 'Hitilafu imetokea!';
+      showToast(msg, 'error');
+    }
+  }
+
+  /* ════════════════════════════════
+     EDIT
+  ════════════════════════════════ */
+  async function editProduct(id) {
+    try {
+      const res = await axios.get(`${API}/products/${id}`);
+      openModal(res.data);
+    } catch {
+      showToast('Imeshindwa kupakia bidhaa.', 'error');
+    }
+  }
+
+  /* ════════════════════════════════
+     DELETE
+  ════════════════════════════════ */
+  async function deleteProduct(id, name) {
+    const result = await Swal.fire({
+      title: 'Futa bidhaa?',
+      html:  `Una uhakika unataka kufuta <b>"${name}"</b>?`,
+      icon:  'warning',
+      background: '#1a1a1a',
+      color:  '#e8e2d6',
+      showCancelButton:  true,
+      confirmButtonText: 'Ndio, Futa',
+      cancelButtonText:  'Hapana',
+      confirmButtonColor: '#c0392b',
+      cancelButtonColor:  '#2e2e2e',
+    });
+
+    if (!result.isConfirmed) return;
+
+    try {
+      await axios.delete(`${API}/products/${id}`);
+      showToast(`"${name}" imefutwa!`, 'success');
+      loadProducts();
+    } catch {
+      showToast('Imeshindwa kufuta bidhaa.', 'error');
+    }
+  }
+
+  /* ════════════════════════════════
+     TOAST
+  ════════════════════════════════ */
+  let toastTimer;
+  function showToast(msg, type = 'success') {
+    const toast = document.getElementById('toast');
+    const icon  = document.getElementById('toast-icon');
+    const text  = document.getElementById('toast-msg');
+
+    toast.className = '';
+    icon.className  = type === 'success'
+      ? 'fa-solid fa-circle-check success'
+      : 'fa-solid fa-circle-xmark error';
+
+    text.textContent = msg;
+    toast.classList.add('show', type);
+
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
+  }
+
+  /* ── Keyboard: ESC closes modal ── */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  /* ── Init ── */
+  loadProducts();
+</script>
+</body>
 </html>
+
+
+<button>AGIZA SASA</button>
+<body>
+</body>
